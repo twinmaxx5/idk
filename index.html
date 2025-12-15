@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Games</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111;
+    color: white;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #sidebar {
+    width: 320px;
+    background: #1c1c1c;
+    overflow-y: auto;
+    padding: 10px;
+    border-right: 2px solid #000;
+  }
+
+  #sidebar h2 {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  #sidebar button {
+    width: 100%;
+    background: #2a2a2a;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin: 4px 0;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  #sidebar button:hover {
+    background: #444;
+  }
+
+  #topbar {
+    height: 40px;
+    background: #1c1c1c;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+    border-bottom: 2px solid #000;
+  }
+
+  #topbar button {
+    background: #2a2a2a;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+
+  #topbar button:hover {
+    background: #444;
+  }
+
+  #main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  iframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: black;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="sidebar">
+  <h2>🎮 Games</h2>
+
+  <!-- FOLDER GAMES -->
+  <button onclick="loadGame('10-minutes-till-dawn/')">10 Minutes Till Dawn</button>
+  <button onclick="loadGame('1v1-lol/')">1v1.LOL</button>
+  <button onclick="loadGame('among-us/')">Among Us</button>
+  <button onclick="loadGame('badicecream/')">Bad Ice Cream</button>
+  <button onclick="loadGame('badicecream2/')">Bad Ice Cream 2</button>
+  <button onclick="loadGame('badicecream3/')">Bad Ice Cream 3</button>
+  <button onclick="loadGame('basketball-stars/')">Basketball Stars</button>
+  <button onclick="loadGame('bit-life/')">BitLife</button>
+  <button onclick="loadGame('block-blast/')">Block Blast</button>
+  <button onclick="loadGame('cookie-clicker/')">Cookie Clicker</button>
+  <button onclick="loadGame('dadish/')">Dadish</button>
+  <button onclick="loadGame('dadish-2/')">Dadish 2</button>
+  <button onclick="loadGame('dadish-3/')">Dadish 3</button>
+  <button onclick="loadGame('drive-mad/')">Drive Mad</button>
+  <button onclick="loadGame('ducklife4/')">Duck Life 4</button>
+  <button onclick="loadGame('ducklife5/')">Duck Life 5</button>
+  <button onclick="loadGame('ducklife6/')">Duck Life 6</button>
+  <button onclick="loadGame('eggy-car/')">Eggy Car</button>
+  <button onclick="loadGame('fireboy-and-watergirl/')">Fireboy & Watergirl</button>
+  <button onclick="loadGame('friday-night-funkin/')">Friday Night Funkin</button>
+  <button onclick="loadGame('geometry-dash-main/geometry-dash-main/')">Geometry Dash</button>
+  <button onclick="loadGame('happywheels/')">Happy Wheels</button>
+  <button onclick="loadGame('minecraft/')">Minecraft</button>
+  <button onclick="loadGame('monkey-mart/')">Monkey Mart</button>
+  <button onclick="loadGame('motox3m/')">Moto X3M</button>
+  <button onclick="loadGame('ovo/')">OvO</button>
+  <button onclick="loadGame('retro-bowl/')">Retro Bowl</button>
+  <button onclick="loadGame('slope/')">Slope</button>
+  <button onclick="loadGame('subway-surfers/')">Subway Surfers</button>
+  <button onclick="loadGame('temple-run-2/')">Temple Run 2</button>
+  <button onclick="loadGame('vex-7/')">Vex 7</button>
+  <button onclick="loadGame('zombsroyale/')">Zombs Royale</button>
+
+  <hr>
+
+  <!-- SINGLE FILE GAMES -->
+  <button onclick="loadGame('Attack-Hole.html')">Attack Hole</button>
+  <button onclick="loadGame('Balatro.html')">Balatro</button>
+  <button onclick="loadGame('Bloons-TD-5.html')">Bloons TD 5</button>
+  <button onclick="loadGame('Crossy Road.html')">Crossy Road</button>
+  <button onclick="loadGame('Friday Night Funkin.html')">FNF (Alt)</button>
+  <button onclick="loadGame('Plants vs Zombies.html')">Plants vs Zombies</button>
+  <button onclick="loadGame('Papers-Please.html')">Papers, Please</button>
+  <button onclick="loadGame('Snow-Rider-3D.html')">Snow Rider 3D</button>
+  <button onclick="loadGame('Superhot.html')">Superhot</button>
+  <button onclick="loadGame('Time-Shooter-3-SWAT.html')">Time Shooter 3</button>
+  <button onclick="loadGame('undertale.html')">Undertale</button>
+
+</div>
+
+<div id="main">
+  <div id="topbar">
+    <button onclick="reloadGame()">🔄 Reload</button>
+    <button onclick="fullscreen()">⛶ Fullscreen</button>
+    <span id="currentGame" style="margin-left:10px;color:#aaa;">No game loaded</span>
+  </div>
+
+  <iframe id="gameFrame"></iframe>
+</div>
+
+<script>
+  const frame = document.getElementById("gameFrame");
+  const label = document.getElementById("currentGame");
+
+  function loadGame(path) {
+    frame.src = path;
+    label.textContent = path;
+  }
+
+  function reloadGame() {
+    frame.src = frame.src;
+  }
+
+  function fullscreen() {
+    if (frame.requestFullscreen) frame.requestFullscreen();
+  }
+</script>
+
+</body>
+</html>
